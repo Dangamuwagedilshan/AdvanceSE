@@ -81,12 +81,12 @@ public class Aardvark {
 				gg[r][c] = 9;
 			}
 		}
-		for (Domino d : _g) {
+		_g.forEach(d-> {
 			if (d.placed) {
 				gg[d.hy][d.hx] = d.high;
 				gg[d.ly][d.lx] = d.low;
 			}
-		}
+		});
 	}
 
 	int pg() {
