@@ -198,7 +198,9 @@ public class Aardvark {
 	}
 
 	private boolean theCellToTheRightIsTopLeftOfVerticalDomino(int x, int y) {
-		Domino e = findDominoAt(x + 1, y);
+		Domino e;
+		int i1 = x + 1;
+		e = findDominoAt(i1, y);
 		return thisIsTopLeftOfDomino(x + 1, y, e) && !e.ishl();
 	}
 
@@ -222,9 +224,8 @@ public class Aardvark {
 
 	private Domino findGuessAt(int x, int y) {
 		for (Domino d : _g) {
-			if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
+			if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y))
 				return d;
-			}
 		}
 		return null;
 	}

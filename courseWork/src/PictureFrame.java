@@ -8,11 +8,13 @@ public class PictureFrame {
 
   class DominoPanel extends JPanel {
     private static final long serialVersionUID = 4190229282411119364L;
+    public static final int rngColValue = 20;
+    public static final int rngDrawValue = 30;
 
     public void drawGrid(Graphics g) {
       for (int are = 0; are < 7; are++) {
         for (int see = 0; see < 8; see++) {
-          drawDigitGivenCentre(g, 30 + see * 20, 30 + are * 20, 20,
+          drawDigitGivenCentre(g, rngDrawValue + see * rngColValue, rngDrawValue + are * rngColValue, rngColValue,
               master.grid[are][see]);
         }
       }
@@ -21,20 +23,20 @@ public class PictureFrame {
     public void drawGridLines(Graphics g) {
       g.setColor(Color.LIGHT_GRAY);
       for (int are = 0; are <= 7; are++) {
-        g.drawLine(20, 20 + are * 20, 180, 20 + are * 20);
+        g.drawLine(rngColValue, rngColValue + are * rngColValue, 180, rngColValue + are * rngColValue);
       }
       for (int see = 0; see <= 8; see++) {
-        g.drawLine(20 + see * 20, 20, 20 + see * 20, 160);
+        g.drawLine(rngColValue + see * rngColValue, rngColValue, rngColValue + see * rngColValue, 160);
       }
     }
 
     public void drawHeadings(Graphics g) {
       for (int are = 0; are < 7; are++) {
-        fillDigitGivenCentre(g, 10, 30 + are * 20, 20, are+1);
+        fillDigitGivenCentre(g, 10, rngDrawValue + are * rngColValue, rngColValue, are+1);
       }
 
       for (int see = 0; see < 8; see++) {
-        fillDigitGivenCentre(g, 30 + see * 20, 10, 20, see+1);
+        fillDigitGivenCentre(g, rngDrawValue + see * rngColValue, 10, rngColValue, see+1);
       }
     }
 
@@ -45,12 +47,12 @@ public class PictureFrame {
         int w = Math.abs(d.lx - d.hx) + 1;
         int h = Math.abs(d.ly - d.hy) + 1;
         g.setColor(Color.WHITE);
-        g.fillRect(20 + x * 20, 20 + y * 20, w * 20, h * 20);
+        g.fillRect(rngColValue + x * rngColValue, rngColValue + y * rngColValue, w * rngColValue, h * rngColValue);
         g.setColor(Color.RED);
-        g.drawRect(20 + x * 20, 20 + y * 20, w * 20, h * 20);
-        drawDigitGivenCentre(g, 30 + d.hx * 20, 30 + d.hy * 20, 20, d.high,
+        g.drawRect(rngColValue + x * rngColValue, rngColValue + y * rngColValue, w * rngColValue, h * rngColValue);
+        drawDigitGivenCentre(g, rngDrawValue + d.hx * rngColValue, rngDrawValue + d.hy * rngColValue, rngColValue, d.high,
             Color.BLUE);
-        drawDigitGivenCentre(g, 30 + d.lx * 20, 30 + d.ly * 20, 20, d.low,
+        drawDigitGivenCentre(g, rngDrawValue + d.lx * rngColValue, rngDrawValue + d.ly * rngColValue, rngColValue, d.low,
             Color.BLUE);
       }
     }
@@ -123,7 +125,7 @@ public class PictureFrame {
   }
 
   public void reset() {
-    // TODO Auto-generated method stub
+   
 
   }
 
