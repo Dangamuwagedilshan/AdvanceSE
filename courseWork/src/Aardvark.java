@@ -64,7 +64,7 @@ public class Aardvark {
 	}
 
 	void collateGrid() {
-		for (Domino d : _d) {
+		_d.forEach(d->{
 			if (!d.placed) {
 				grid[d.hy][d.hx] = 9;
 				grid[d.ly][d.lx] = 9;
@@ -72,7 +72,7 @@ public class Aardvark {
 				grid[d.hy][d.hx] = d.high;
 				grid[d.ly][d.lx] = d.low;
 			}
-		}
+		});
 	}
 
 	void collateGuessGrid() {
