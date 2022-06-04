@@ -250,15 +250,15 @@ public class Aardvark {
 	}
 
 	private void printDominoes() {
-		for (Domino d : _d) {
+		_d.forEach(d->{
 			System.out.println(d);
-		}
+		});
 	}
 
 	private void printGuesses() {
-		for (Domino d : _g) {
+		_g.forEach(d->{
 			System.out.println(d);
-		}
+		});
 	}
 
 	public final int ZERO = 0;
