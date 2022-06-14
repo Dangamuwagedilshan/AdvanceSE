@@ -61,17 +61,17 @@ public class Aardvark {
 		    }
 		  }
 
-	void collateGrid() {
-		dl.forEach(d->{
-			if (!d.placed) {
-				grid[d.hy][d.hx] = 9;
-				grid[d.ly][d.lx] = 9;
-			} else {
-				grid[d.hy][d.hx] = d.high;
-				grid[d.ly][d.lx] = d.low;
-			}
-		});
-	}
+	 void collateGrid() {
+		    for (Domino d : dl) {
+		      if (!d.placed) {
+		        grid[d.hy][d.hx] = 9;
+		        grid[d.ly][d.lx] = 9;
+		      } else {
+		        grid[d.hy][d.hx] = d.high;
+		        grid[d.ly][d.lx] = d.low;
+		      }
+		    }
+		  }
 
 	void collateGuessGrid() {
 		for (int r = 0; r < 7; r++) {
