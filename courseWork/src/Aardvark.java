@@ -214,21 +214,19 @@ public class Aardvark {
 		 return d;
 	  }
 
-	private boolean theCellToTheRightIsTopLeftOfVerticalDomino(int x, int y) {
-		Domino e;
-		int i1 = x + 1;
-		e = findDominoAt(i1, y);
-		return thisIsTopLeftOfDomino(x + 1, y, e) && !e.ishl();
-	}
+	  private boolean theCellToTheRightIsTopLeftOfVerticalDomino(int x, int y) {
+		    Domino e = findDominoAt(x + 1, y);
+		    return thisIsTopLeftOfDomino(x + 1, y, e) && !e.ishl();
+		  }
 
-	private boolean theCellBelowIsTopLeftOfHorizontalDomino(int x, int y) {
-		Domino e = findDominoAt(x, y + 1);
-		return thisIsTopLeftOfDomino(x, y + 1, e) && e.ishl();
-	}
+		  private boolean theCellBelowIsTopLeftOfHorizontalDomino(int x, int y) {
+		    Domino e = findDominoAt(x, y + 1);
+		    return thisIsTopLeftOfDomino(x, y + 1, e) && e.ishl();
+		  }
 
-	private boolean thisIsTopLeftOfDomino(int x, int y, Domino d) {
-		return (x == Math.min(d.lx, d.hx)) && (y == Math.min(d.ly, d.hy));
-	}
+		  private boolean thisIsTopLeftOfDomino(int x, int y, Domino d) {
+		    return (x == Math.min(d.lx, d.hx)) && (y == Math.min(d.ly, d.hy));
+		  }
 
 	private Domino findDominoAt(int x, int y) {
 		for (Domino d : dl) {
