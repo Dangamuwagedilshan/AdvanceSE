@@ -117,22 +117,25 @@ public class Aardvark {
 
 
 	private void shuffleDominoesOrder() {
-		List<Domino> shuffled = new LinkedList<Domino>();
-		while (dl.size() > 0) {
-			int n = (int) (Math.random() * dl.size());
-			shuffled.add(dl.get(n));
-			dl.remove(n);
-		}
-		dl = shuffled;
-	}
+	    List<Domino> shuffled = new LinkedList<Domino>();
 
-	private void invertSomeDominoes() {
-		dl.forEach(d->{
-			if (Math.random() > 0.5) {
-				d.invert();
-			}
-		});
-	}
+	    while (dl.size() > 0) {
+	      int n = (int) (Math.random() * dl.size());
+	      shuffled.add(dl.get(n));
+	      dl.remove(n);
+	    }
+
+	    dl = shuffled;
+	  }
+
+	  private void invertSomeDominoes() {
+	    for (Domino d : dl) {
+	      if (Math.random() > 0.5) {
+	        d.invert();
+	      }
+	    }
+	  }
+
 
 	private void placeDominoes() {
 		int x = 0;
