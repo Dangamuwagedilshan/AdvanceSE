@@ -156,50 +156,63 @@ public class Aardvark {
 		    }
 		  }
 
-	private void rotateDominoes() {
-		for (int x = 0; x < 7; x++) {
-			for (int y = 0; y < 6; y++) {
-				tryToRotateDominoAt(x, y);
-			}
-		}
-	}
+	  private void rotateDominoes() 
+	  {   
+	     for (int x = 0; x < 7; x++) 
+	     {
+		      for (int y = 0; y < 6; y++) {
+		        tryToRotateDominoAt(x, y);
+		      }
+	     }
+	  }
 
-	private void tryToRotateDominoAt(int x, int y) {
-		Domino d = findDominoAt(x, y);
-		if (thisIsTopLeftOfDomino(x, y, d)) {
-			if (d.ishl()) {
-				boolean weFancyARotation = Math.random() < 0.5;
-				if (weFancyARotation) {
-					if (theCellBelowIsTopLeftOfHorizontalDomino(x, y)) {
-						Domino e = findDominoAt(x, y + 1);
-						e.hx = x;
-						e.lx = x;
-						d.hx = x + 1;
-						d.lx = x + 1;
-						e.ly = y + 1;
-						e.hy = y;
-						d.ly = y + 1;
-						d.hy = y;
-					}
-				}
-			} else {
-				boolean weFancyARotation = Math.random() < 0.5;
-				if (weFancyARotation) {
-					if (theCellToTheRightIsTopLeftOfVerticalDomino(x, y)) {
-						Domino e = findDominoAt(x + 1, y);
-						e.hx = x;
-						e.lx = x + 1;
-						d.hx = x;
-						d.lx = x + 1;
-						e.ly = y + 1;
-						e.hy = y + 1;
-						d.ly = y;
-						d.hy = y;
-					}
-				}
-			}
-		}
-	}
+	  private void tryToRotateDominoAt(int x, int y) {
+		  try
+		  {
+		    Domino d = findDominoAt(x, y);
+		    boolean status = thisIsTopLeftOfDomino(x, y, d);
+		    if (status) {
+		    	boolean isWeFancyARotation = Math.random() < 0.5;    	
+		    	if (d.ishl()) 
+		    		methodIshlTrue(x, y, d, isWeFancyARotation);        
+		    	else 
+		    		methodIshlFalse(x, y, d, isWeFancyARotation);
+		    }
+		  }
+		  catch(NullPointerException e) {e.printStackTrace();}
+	  }
+
+	  private Domino methodIshlTrue(int x, int y, Domino d, boolean isWeFancyARotation)
+	  {
+		  if (isWeFancyARotation) {
+	          if (theCellBelowIsTopLeftOfHorizontalDomino(x, y)) {
+	            Domino e = findDominoAt(x, y + 1);
+	            e.hx = x;
+	            e.lx = x;
+	            d.hx = x + 1;
+	            d.lx = x + 1;
+	            e.ly = y + 1;
+	            e.hy = y;
+	            d.ly = y + 1;
+	            d.hy = y;
+	          }
+	       }
+		  return d;
+	  }
+	  private Domino methodIshlFalse(int x, int y, Domino d, boolean isWeFancyARotation) {
+		  if (theCellToTheRightIsTopLeftOfVerticalDomino(x, y)) {
+	            Domino e = findDominoAt(x + 1, y);
+	            e.hx = x;
+	            e.lx = x + 1;
+	            d.hx = x;
+	            d.lx = x + 1;
+	            e.ly = y + 1;
+	            e.hy = y + 1;
+	            d.ly = y;
+	            d.hy = y;
+	     }
+		 return d;
+	  }
 
 	private boolean theCellToTheRightIsTopLeftOfVerticalDomino(int x, int y) {
 		Domino e;
