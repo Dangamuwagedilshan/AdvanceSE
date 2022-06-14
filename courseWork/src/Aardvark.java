@@ -102,18 +102,19 @@ public class Aardvark {
 	  }
 
 	int printGuessGrid() {
-		for (int are = 0; are < 7; are++) {
-			for (int see = 0; see < 8; see++) {
-				if (ss[are][see] != 9) {
-					System.out.printf("%d", ss[are][see]);
-				} else {
-					System.out.print(".");
-				}
-			}
-			System.out.println();
-		}
-		return 11;
-	}
+	    for (int are = 0; are < 7; are++) {
+	      for (int see = 0; see < 8; see++) {
+	        if (ss[are][see] != 9) {
+	          System.out.printf("%d", ss[are][see]);
+	        } else {
+	          System.out.print(".");
+	        }
+	      }
+	      System.out.println();
+	    }
+	    return 11;
+	  }
+
 
 	private void shuffleDominoesOrder() {
 		List<Domino> shuffled = new LinkedList<Domino>();
