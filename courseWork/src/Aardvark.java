@@ -14,7 +14,7 @@ public class Aardvark {
 	  private List<Domino> dl;
 	  private List<Domino> gl;
 	  public int[][] grid = new int[7][8];
-	  public int[][] gg = new int[7][8];
+	  public int[][] ss = new int[7][8];
 	  public int mode = -1;
 	  int cf;
 	  int score;
@@ -76,36 +76,36 @@ public class Aardvark {
 	void collateGuessGrid() {
 		for (int r = 0; r < 7; r++) {
 			for (int c = 0; c < 8; c++) {
-				gg[r][c] = 9;
+				ss[r][c] = 9;
 			}
 		}
 		gl.forEach(d-> {
 			if (d.placed) {
-				gg[d.hy][d.hx] = d.high;
-				gg[d.ly][d.lx] = d.low;
+				ss[d.hy][d.hx] = d.high;
+				ss[d.ly][d.lx] = d.low;
 			}
 		});
 	}
 
 	int pg() {
-		for (int are = 0; are < 7; are++) {
-			for (int see = 0; see < 8; see++) {
-				if (grid[are][see] != 9) {
-					System.out.printf("%d", grid[are][see]);
-				} else {
-					System.out.print(".");
-				}
-			}
-			System.out.println();
-		}
-		return 11;
-	}
+	    for (int are = 0; are < 7; are++) {
+	      for (int see = 0; see < 8; see++) {
+	        if (grid[are][see] != 9) {
+	          System.out.printf("%d", grid[are][see]);
+	        } else {
+	          System.out.print(".");
+	        }
+	      }
+	      System.out.println();
+	    }
+	    return 11;
+	  }
 
 	int printGuessGrid() {
 		for (int are = 0; are < 7; are++) {
 			for (int see = 0; see < 8; see++) {
-				if (gg[are][see] != 9) {
-					System.out.printf("%d", gg[are][see]);
+				if (ss[are][see] != 9) {
+					System.out.printf("%d", ss[are][see]);
 				} else {
 					System.out.print(".");
 				}
@@ -471,12 +471,12 @@ public class Aardvark {
 								System.out.println(d);
 								break;
 							}
-							if (r.gg[y][x] != 9 || r.gg[y2][x2] != 9) {
+							if (r.ss[y][x] != 9 || r.ss[y2][x2] != 9) {
 								System.out.println("Those coordinates are not vacant");
 								break;
 							}
-							r.gg[y][x] = r.grid[y][x];
-							r.gg[y2][x2] = r.grid[y2][x2];
+							r.ss[y][x] = r.grid[y][x];
+							r.ss[y2][x2] = r.grid[y2][x2];
 							if (r.grid[y][x] == d.high && r.grid[y2][x2] == d.low) {
 								d.place(x, y, x2, y2);
 							} else {
@@ -516,8 +516,8 @@ public class Aardvark {
 							System.out.println("Couln't find a domino there");
 						} else {
 							lkj.placed = false;
-							r.gg[lkj.hy][lkj.hx] = 9;
-							r.gg[lkj.ly][lkj.lx] = 9;
+							r.ss[lkj.hy][lkj.hx] = 9;
+							r.ss[lkj.ly][lkj.lx] = 9;
 							r.score -= 1000;
 							r.collateGuessGrid();
 							r.pf.dp.repaint();
