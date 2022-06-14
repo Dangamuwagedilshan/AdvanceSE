@@ -228,50 +228,55 @@ public class Aardvark {
 		    return (x == Math.min(d.lx, d.hx)) && (y == Math.min(d.ly, d.hy));
 		  }
 
-	private Domino findDominoAt(int x, int y) {
-		for (Domino d : dl) {
-			if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
-				return d;
-			}
-		}
-		return null;
-	}
+		  private Domino findDominoAt(int x, int y) {
+			    for (Domino d : dl) {
+			      if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
+			        return d;
+			      }
+			    }
+			    return null;
+			  }
 
-	private Domino findGuessAt(int x, int y) {
-		for (Domino d : gl) {
-			if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y))
-				return d;
-		}
-		return null;
-	}
+		  private Domino findGuessAt(int x, int y) {
+			    for (Domino d : gl) {
+			      if ((d.lx == x && d.ly == y) || (d.hx == x && d.hy == y)) {
+			        return d;
+			      }
+			    }
+			    return null;
+			  }
 
-	private Domino findGuessByLH(int x, int y) {
-		for (Domino d : gl) {
-			if ((d.low == x && d.high == y) || (d.high == x && d.low == y)) {
-				return d;
-			}
-		}
-		return null;
-	}
+		  private Domino findGuessByLH(int x, int y) {
+			    for (Domino d : gl) {
+			      if ((d.low == x && d.high == y) || (d.high == x && d.low == y)) {
+			        return d;
+			      }
+			    }
+			    return null;
+			  }
 
-	private Domino findDominoByLH(int x, int y) {
-		for (Domino d : dl) {
-			if ((d.low == x && d.high == y) || (d.high == x && d.low == y)) {
-				return d;
-			}
-		}
-		return null;
-	}
+		  private Domino findDominoByLH(int x, int y) {
+			    for (Domino d : dl) {
+			      if ((d.low == x && d.high == y) || (d.high == x && d.low == y)) {
+			        return d;
+			      }
+			    }
+			    return null;
+			  }
 
-	private void printDominoes() {
-		dl.forEach(d->System.out.println(d));
-	}
+		  private void printDominoes() {
+			    for (Domino d : dl) {
+			      System.out.println(d);
+			    }
+			  }
 
-	private void printGuesses() {
-		gl.forEach(d->System.out.println(d));
-	}
+			  private void printGuesses() {
+			    for (Domino d : gl) {
+			      System.out.println(d);
+			    }
+			  }
 
-	public final int ZERO = 0;
+			  public final int ZERO = 0;
 
 	private void recordTheScore() {
 		try {
