@@ -45,21 +45,21 @@ public class Aardvark {
 	    }
 	  }
 
-	private void generateGuesses() {
-		gl = new LinkedList<Domino>();
-		int count = 0;
-		for (int l = 0; l <= 6; l++) {
-			for (int h = l; h <= 6; h++) {
-				Domino d = new Domino(h, l);
-				gl.add(d);
-				count++;
-			}
-		}
-		if (count != 28) {
-			System.out.println("something went wrong generating dominoes");
-			System.exit(0);
-		}
-	}
+	 private void generateGuesses() {
+		    gl = new LinkedList<Domino>();
+		    int count = 0;
+		    for (int l = 0; l <= 6; l++) {
+		      for (int h = l; h <= 6; h++) {
+		        Domino d = new Domino(h, l);
+		        gl.add(d);
+		        count++;
+		      }
+		    }
+		    if (count != 28) {
+		      System.out.println(KeyCodeConstant.WrongDominoMsg);
+		      System.exit(0);
+		    }
+		  }
 
 	void collateGrid() {
 		dl.forEach(d->{
