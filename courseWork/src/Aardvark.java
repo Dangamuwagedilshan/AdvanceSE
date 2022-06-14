@@ -137,24 +137,24 @@ public class Aardvark {
 	  }
 
 
-	private void placeDominoes() {
-		int x = 0;
-		int y = 0;
-		int count = 0;
-		for (Domino d : dl) {
-			count++;
-			d.place(x, y, x + 1, y);
-			x += 2;
-			if (x > 6) {
-				x = 0;
-				y++;
-			}
-		}
-		if (count != 28) {
-			System.out.println("something went wrong generating dominoes");
-			System.exit(0);
-		}
-	}
+	  private void placeDominoes() {
+		    int x = 0;
+		    int y = 0;
+		    int count = 0;
+		    for (Domino d : dl) {
+		      count++;
+		      d.place(x, y, x + 1, y);
+		      x += 2;
+		      if (x > 6) {
+		        x = 0;
+		        y++;
+		      }
+		    }
+		    if (count != 28) {
+		      System.out.println(KeyCodeConstant.WrongDominoMsg);
+		      System.exit(0);
+		    }
+		  }
 
 	private void rotateDominoes() {
 		for (int x = 0; x < 7; x++) {
