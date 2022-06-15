@@ -1,12 +1,16 @@
+package View;
 import java.awt.*;
+import Controller.*;
 
 import javax.swing.*;
+
+import Model.*;
 
 public class PictureFrame {
   public int[] reroll = null;
   Aardvark master = null;
 
-  class DominoPanel extends JPanel {
+  public class DominoPanel extends JPanel {
     private static final long serialVersionUID = 4190229282411119364L;
     public static final int rngColValue = 20;
     public static final int rngDrawValue = 30;

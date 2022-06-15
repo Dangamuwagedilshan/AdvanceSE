@@ -1,3 +1,4 @@
+package Controller;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.io.*;
@@ -8,6 +9,11 @@ import java.util.*;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import Model.*;
+import View.*;
+import Util.*;
+import Service.*;
+import View.*;
 
 public class Aardvark {
 	 private String playerName;

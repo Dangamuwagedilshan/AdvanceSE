@@ -1,3 +1,4 @@
+package Model;
 
 public class Location extends SpacePlace {
   public int c;

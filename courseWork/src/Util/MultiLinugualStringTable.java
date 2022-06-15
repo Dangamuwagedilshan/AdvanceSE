@@ -1,3 +1,4 @@
+package Util;
 
 public class MultiLinugualStringTable {
   private enum LanguageSetting {English, Klingon}

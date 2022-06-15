@@ -1,3 +1,4 @@
+package Service;
 import java.net.InetAddress;
 
 public class ConnectionGenius {

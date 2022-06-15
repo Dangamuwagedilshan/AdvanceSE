@@ -1,3 +1,4 @@
+package Model;
 
 public class Domino implements Comparable<Domino> {
   public int high;
